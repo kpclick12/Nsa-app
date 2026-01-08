@@ -5,6 +5,7 @@ const RACE_DISTANCES: Record<RaceDistance, number> = {
   '5k': 5,
   '10k': 10,
   'half': 21.0975,
+  'marathon': 42.195,
 };
 
 /**
@@ -177,6 +178,7 @@ export function getDistanceLabel(distance: RaceDistance): string {
     '5k': '5K',
     '10k': '10K',
     'half': 'Half Marathon',
+    'marathon': 'Marathon',
   };
   return labels[distance];
 }

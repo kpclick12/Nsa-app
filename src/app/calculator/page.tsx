@@ -102,6 +102,7 @@ export default function CalculatorPage() {
     { value: '5k', label: '5K' },
     { value: '10k', label: '10K' },
     { value: 'half', label: 'Half Marathon' },
+    { value: 'marathon', label: 'Marathon' },
   ];
 
   return (

@@ -37,6 +37,13 @@ export const PLAN_TEMPLATES: PlanTemplateInfo[] = [
     thresholdSessions: 2,
   },
   {
+    id: 'marathon',
+    name: 'Marathon Focus',
+    description: 'High volume endurance training for marathon racing with sustained threshold work.',
+    weeklyVolume: '70-100 km/week',
+    thresholdSessions: 2,
+  },
+  {
     id: 'general',
     name: 'General Fitness',
     description: 'Build a strong aerobic base with the Norwegian method. Great for base building.',
@@ -118,8 +125,10 @@ function generateWeek(weekNumber: number, template: PlanTemplate): TrainingWeek 
     workouts = generate5KWeek(weekNumber, isRecoveryWeek, isTaperWeek, thresholdWorkoutIndex1, thresholdWorkoutIndex2);
   } else if (template === '10k') {
     workouts = generate10KWeek(weekNumber, isRecoveryWeek, isTaperWeek, thresholdWorkoutIndex1, thresholdWorkoutIndex2);
-  } else {
+  } else if (template === 'half') {
     workouts = generateHalfWeek(weekNumber, isRecoveryWeek, isTaperWeek, thresholdWorkoutIndex1, thresholdWorkoutIndex2);
+  } else {
+    workouts = generateMarathonWeek(weekNumber, isRecoveryWeek, isTaperWeek, thresholdWorkoutIndex1, thresholdWorkoutIndex2);
   }
 
   return {
@@ -274,6 +283,47 @@ function generateHalfWeek(
         })
       : createThresholdPlannedWorkout(4, THRESHOLD_WORKOUTS[thresholdIdx2]),
     createPlannedWorkout(5, 'long', 'Long Run', 'Long easy run for aerobic development', {
+      targetDuration: baseLongDuration,
+      targetZone: 2,
+    }),
+    createPlannedWorkout(6, 'rest', 'Rest Day', 'Complete rest or light stretching'),
+  ];
+}
+
+/**
+ * Generate Marathon Focus week (2 threshold sessions, longest long runs)
+ */
+function generateMarathonWeek(
+  weekNumber: number,
+  isRecovery: boolean,
+  isTaper: boolean,
+  thresholdIdx1: number,
+  thresholdIdx2: number
+) {
+  const baseEasyDuration = isRecovery ? 50 : isTaper ? 45 : 55 + weekNumber;
+  const baseLongDuration = isRecovery ? 90 : isTaper ? 70 : 110 + weekNumber * 5;
+
+  return [
+    createPlannedWorkout(0, 'easy', 'Easy Run', 'Easy aerobic run in Zone 2', {
+      targetDuration: baseEasyDuration,
+      targetZone: 2,
+    }),
+    createThresholdPlannedWorkout(1, THRESHOLD_WORKOUTS[thresholdIdx1]),
+    createPlannedWorkout(2, 'easy', 'Easy Run', 'Easy aerobic run in Zone 2', {
+      targetDuration: baseEasyDuration - 10,
+      targetZone: 2,
+    }),
+    createPlannedWorkout(3, 'recovery', 'Recovery Run', 'Very easy recovery jog in Zone 1', {
+      targetDuration: 35,
+      targetZone: 1,
+    }),
+    isRecovery || isTaper
+      ? createPlannedWorkout(4, 'easy', 'Easy Run', 'Easy aerobic run', {
+          targetDuration: baseEasyDuration,
+          targetZone: 2,
+        })
+      : createThresholdPlannedWorkout(4, THRESHOLD_WORKOUTS[thresholdIdx2]),
+    createPlannedWorkout(5, 'long', 'Long Run', 'Marathon-pace long run for endurance', {
       targetDuration: baseLongDuration,
       targetZone: 2,
     }),

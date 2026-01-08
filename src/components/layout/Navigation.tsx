@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 const navItems = [
   {
     name: 'Dashboard',
-    href: '/',
+    href: '/dashboard',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
@@ -92,6 +92,11 @@ const navItems = [
 
 export default function Navigation() {
   const pathname = usePathname();
+
+  // Hide navigation on landing page
+  if (pathname === '/') {
+    return null;
+  }
 
   return (
     <nav className="fixed left-0 top-0 h-full w-64 bg-gray-900 border-r border-gray-800 p-4">

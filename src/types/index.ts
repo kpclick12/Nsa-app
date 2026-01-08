@@ -12,7 +12,7 @@ export interface RaceResult {
   timeInSeconds: number;
 }
 
-export type RaceDistance = '5k' | '10k' | 'half';
+export type RaceDistance = '5k' | '10k' | 'half' | 'marathon';
 
 export interface HRZone {
   zone: number;
@@ -41,7 +41,7 @@ export interface TrainingPlan {
   updatedAt: string;
 }
 
-export type PlanTemplate = '5k' | '10k' | 'half' | 'general';
+export type PlanTemplate = '5k' | '10k' | 'half' | 'marathon' | 'general';
 
 export interface TrainingWeek {
   weekNumber: number;
