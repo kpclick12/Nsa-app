@@ -99,4 +99,3 @@ A separate section explaining:
 - Offline support
 - Mobile-optimized version
 - Export training data (CSV, PDF)
-
