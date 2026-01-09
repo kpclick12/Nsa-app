@@ -35,7 +35,7 @@ export default function Dashboard() {
   return (
     <div className="max-w-6xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
         <p className="text-gray-400">
           Welcome to NSA - Your Norwegian Single Method training companion
         </p>
@@ -46,25 +46,25 @@ export default function Dashboard() {
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400 mb-1">This Week</p>
-            <p className="text-2xl font-bold text-white">{weeklyDistance.toFixed(1)} km</p>
+            <p className="text-2xl font-bold text-gray-900">{weeklyDistance.toFixed(1)} km</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400 mb-1">Duration</p>
-            <p className="text-2xl font-bold text-white">{Math.round(weeklyDuration)} min</p>
+            <p className="text-2xl font-bold text-gray-900">{Math.round(weeklyDuration)} min</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400 mb-1">Workouts</p>
-            <p className="text-2xl font-bold text-white">{weeklyWorkouts.length}</p>
+            <p className="text-2xl font-bold text-gray-900">{weeklyWorkouts.length}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400 mb-1">Total Workouts</p>
-            <p className="text-2xl font-bold text-white">{workouts.length}</p>
+            <p className="text-2xl font-bold text-gray-900">{workouts.length}</p>
           </CardContent>
         </Card>
       </div>
@@ -78,17 +78,17 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-800">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-100">
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      hasProfile ? 'bg-green-500/20 text-green-400' : 'bg-gray-700 text-gray-400'
+                      hasProfile ? 'bg-green-500/20 text-green-400' : 'bg-gray-200 text-gray-400'
                     }`}
                   >
                     {hasProfile ? '✓' : '1'}
                   </div>
                   <div>
-                    <p className="text-white font-medium">Calculate Training Zones</p>
+                    <p className="text-gray-900 font-medium">Calculate Training Zones</p>
                     <p className="text-sm text-gray-400">Set up your heart rate and pace zones</p>
                   </div>
                 </div>
@@ -99,17 +99,17 @@ export default function Dashboard() {
                 </Link>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-800">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-100">
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      hasPlan ? 'bg-green-500/20 text-green-400' : 'bg-gray-700 text-gray-400'
+                      hasPlan ? 'bg-green-500/20 text-green-400' : 'bg-gray-200 text-gray-400'
                     }`}
                   >
                     {hasPlan ? '✓' : '2'}
                   </div>
                   <div>
-                    <p className="text-white font-medium">Create Training Plan</p>
+                    <p className="text-gray-900 font-medium">Create Training Plan</p>
                     <p className="text-sm text-gray-400">Generate your 8-week plan</p>
                   </div>
                 </div>
@@ -120,13 +120,13 @@ export default function Dashboard() {
                 </Link>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-800">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-700 text-gray-400">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 text-gray-400">
                     3
                   </div>
                   <div>
-                    <p className="text-white font-medium">Track Your Workouts</p>
+                    <p className="text-gray-900 font-medium">Track Your Workouts</p>
                     <p className="text-sm text-gray-400">Log your training sessions</p>
                   </div>
                 </div>
@@ -159,16 +159,16 @@ export default function Dashboard() {
                 {recentWorkouts.map((workout) => (
                   <div
                     key={workout.id}
-                    className="flex items-center justify-between p-3 rounded-lg bg-gray-800"
+                    className="flex items-center justify-between p-3 rounded-lg bg-gray-100"
                   >
                     <div>
-                      <p className="text-white font-medium">{workout.name}</p>
+                      <p className="text-gray-900 font-medium">{workout.name}</p>
                       <p className="text-sm text-gray-400">
                         {new Date(workout.date).toLocaleDateString()}
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-white">{workout.distance.toFixed(1)} km</p>
+                      <p className="text-gray-900">{workout.distance.toFixed(1)} km</p>
                       <p className="text-sm text-gray-400">{formatPace(workout.avgPace)} /km</p>
                     </div>
                   </div>
@@ -203,11 +203,11 @@ export default function Dashboard() {
                         className="w-3 h-3 rounded-full"
                         style={{ backgroundColor: zone.color }}
                       />
-                      <span className="text-white">
+                      <span className="text-gray-900">
                         Z{zone.zone}: {zone.name}
                       </span>
                     </div>
-                    <span className="text-gray-300">
+                    <span className="text-gray-600">
                       {zone.minHR} - {zone.maxHR} bpm
                     </span>
                   </div>

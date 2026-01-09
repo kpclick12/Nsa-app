@@ -66,14 +66,14 @@ export default function PlanPage() {
     return (
       <div className="max-w-4xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Training Plan</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Training Plan</h1>
           <p className="text-gray-400">Generate and manage your 8-week training plan</p>
         </div>
 
         <Card variant="bordered">
           <CardContent>
             <div className="text-center py-12">
-              <h2 className="text-xl font-semibold text-white mb-2">Set Up Your Zones First</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">Set Up Your Zones First</h2>
               <p className="text-gray-400 mb-6">
                 Before creating a training plan, you need to calculate your training zones.
               </p>
@@ -90,7 +90,7 @@ export default function PlanPage() {
   return (
     <div className="max-w-6xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Training Plan</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Training Plan</h1>
         <p className="text-gray-400">Generate and manage your 8-week training plan</p>
       </div>
 
@@ -139,11 +139,11 @@ export default function PlanPage() {
                     className={`p-4 rounded-lg cursor-pointer transition-colors ${
                       selectedTemplate === template.id
                         ? 'bg-cyan-600/20 border border-cyan-500'
-                        : 'bg-gray-800 hover:bg-gray-750'
+                        : 'bg-gray-100 hover:bg-gray-200'
                     }`}
                     onClick={() => setSelectedTemplate(template.id)}
                   >
-                    <h4 className="font-medium text-white">{template.name}</h4>
+                    <h4 className="font-medium text-gray-900">{template.name}</h4>
                     <p className="text-sm text-gray-400 mt-1">{template.description}</p>
                     <div className="flex gap-4 mt-2 text-xs text-gray-500">
                       <span>Volume: {template.weeklyVolume}</span>
@@ -162,13 +162,13 @@ export default function PlanPage() {
             <Card>
               <CardContent>
                 <p className="text-sm text-gray-400">Plan</p>
-                <p className="text-xl font-bold text-white">{plan.name}</p>
+                <p className="text-xl font-bold text-gray-900">{plan.name}</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent>
                 <p className="text-sm text-gray-400">Start Date</p>
-                <p className="text-xl font-bold text-white">
+                <p className="text-xl font-bold text-gray-900">
                   {new Date(plan.startDate).toLocaleDateString()}
                 </p>
               </CardContent>
@@ -176,13 +176,13 @@ export default function PlanPage() {
             <Card>
               <CardContent>
                 <p className="text-sm text-gray-400">Duration</p>
-                <p className="text-xl font-bold text-white">8 Weeks</p>
+                <p className="text-xl font-bold text-gray-900">8 Weeks</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent>
                 <p className="text-sm text-gray-400">Progress</p>
-                <p className="text-xl font-bold text-white">
+                <p className="text-xl font-bold text-gray-900">
                   {plan.weeks.reduce(
                     (acc, w) => acc + w.workouts.filter((wo) => wo.completed).length,
                     0
@@ -230,7 +230,7 @@ export default function PlanPage() {
                           <div
                             className={`p-2 rounded-lg cursor-pointer transition-colors ${
                               workout.completed ? 'opacity-60' : ''
-                            } ${typeInfo?.bgColor || 'bg-gray-800'}`}
+                            } ${typeInfo?.bgColor || 'bg-gray-100'}`}
                             onClick={() => setEditingWorkout(workout)}
                           >
                             <div className="flex items-center gap-1 mb-1">
@@ -238,11 +238,11 @@ export default function PlanPage() {
                                 className="w-2 h-2 rounded-full"
                                 style={{ backgroundColor: typeInfo?.color }}
                               />
-                              <span className="text-xs font-medium text-white truncate">
+                              <span className="text-xs font-medium text-gray-900 truncate">
                                 {typeInfo?.label}
                               </span>
                             </div>
-                            <p className="text-xs text-gray-300 line-clamp-2">{workout.name}</p>
+                            <p className="text-xs text-gray-700 line-clamp-2">{workout.name}</p>
                             {workout.targetDuration && (
                               <p className="text-xs text-gray-500 mt-1">
                                 {workout.targetDuration} min
@@ -253,7 +253,7 @@ export default function PlanPage() {
                             )}
                           </div>
                         ) : (
-                          <div className="p-2 rounded-lg bg-gray-800/50 text-center">
+                          <div className="p-2 rounded-lg bg-gray-100/50 text-center">
                             <span className="text-xs text-gray-600">Rest</span>
                           </div>
                         )}
@@ -276,11 +276,11 @@ export default function PlanPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-1">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
                         Description
                       </label>
                       <textarea
-                        className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white"
+                        className="w-full px-3 py-2 rounded-lg bg-gray-100 border border-gray-700 text-gray-900"
                         rows={3}
                         value={editingWorkout.description}
                         onChange={(e) =>

@@ -9,8 +9,8 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     const baseStyles = 'rounded-xl p-6';
 
     const variants = {
-      default: 'bg-gray-900',
-      bordered: 'bg-gray-900 border border-gray-800',
+      default: 'bg-white shadow-sm',
+      bordered: 'bg-white border border-gray-200 shadow-sm',
     };
 
     return (
@@ -42,7 +42,7 @@ interface CardTitleProps extends HTMLAttributes<HTMLHeadingElement> {}
 const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className = '', children, ...props }, ref) => {
     return (
-      <h3 ref={ref} className={`text-lg font-semibold text-white ${className}`} {...props}>
+      <h3 ref={ref} className={`text-lg font-semibold text-gray-900 ${className}`} {...props}>
         {children}
       </h3>
     );
@@ -56,7 +56,7 @@ interface CardDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {}
 const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
   ({ className = '', children, ...props }, ref) => {
     return (
-      <p ref={ref} className={`text-sm text-gray-400 mt-1 ${className}`} {...props}>
+      <p ref={ref} className={`text-sm text-gray-500 mt-1 ${className}`} {...props}>
         {children}
       </p>
     );

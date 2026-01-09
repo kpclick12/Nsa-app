@@ -126,7 +126,7 @@ export default function TrackingPage() {
     <div className="max-w-6xl">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Workout Tracking</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Workout Tracking</h1>
           <p className="text-gray-400">Log and manage your training sessions</p>
         </div>
         <Button onClick={() => setShowForm(true)}>Log Workout</Button>
@@ -137,25 +137,25 @@ export default function TrackingPage() {
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400">Total Distance</p>
-            <p className="text-2xl font-bold text-white">{totalDistance.toFixed(1)} km</p>
+            <p className="text-2xl font-bold text-gray-900">{totalDistance.toFixed(1)} km</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400">Total Duration</p>
-            <p className="text-2xl font-bold text-white">{Math.round(totalDuration)} min</p>
+            <p className="text-2xl font-bold text-gray-900">{Math.round(totalDuration)} min</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400">Total Workouts</p>
-            <p className="text-2xl font-bold text-white">{workouts.length}</p>
+            <p className="text-2xl font-bold text-gray-900">{workouts.length}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent>
             <p className="text-sm text-gray-400">Avg RPE</p>
-            <p className="text-2xl font-bold text-white">{avgRPE.toFixed(1)}</p>
+            <p className="text-2xl font-bold text-gray-900">{avgRPE.toFixed(1)}</p>
           </CardContent>
         </Card>
       </div>
@@ -227,11 +227,11 @@ export default function TrackingPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1.5">
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
                     Notes (optional)
                   </label>
                   <textarea
-                    className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500"
+                    className="w-full px-3 py-2 rounded-lg bg-gray-100 border border-gray-300 text-gray-900 placeholder-gray-400"
                     rows={3}
                     placeholder="How did the workout feel?"
                     value={notes}
@@ -240,7 +240,7 @@ export default function TrackingPage() {
                 </div>
 
                 {distance && duration && (
-                  <div className="p-3 rounded-lg bg-gray-800">
+                  <div className="p-3 rounded-lg bg-gray-100">
                     <p className="text-sm text-gray-400">Calculated Pace</p>
                     <p className="text-lg font-bold text-cyan-400">
                       {formatPace(calculatePace(parseFloat(distance), parseFloat(duration)))} /km
@@ -292,7 +292,7 @@ export default function TrackingPage() {
                 return (
                   <div
                     key={workout.id}
-                    className={`p-4 rounded-lg ${typeInfo.bgColor} border border-gray-800`}
+                    className={`p-4 rounded-lg ${typeInfo.bgColor} border border-gray-200`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -301,21 +301,21 @@ export default function TrackingPage() {
                             className="w-3 h-3 rounded-full"
                             style={{ backgroundColor: typeInfo.color }}
                           />
-                          <span className="font-medium text-white">{workout.name}</span>
+                          <span className="font-medium text-gray-900">{workout.name}</span>
                           <span className="text-sm text-gray-500">
                             {new Date(workout.date).toLocaleDateString()}
                           </span>
                         </div>
                         <div className="flex gap-4 text-sm">
-                          <span className="text-gray-300">
+                          <span className="text-gray-700">
                             {workout.distance.toFixed(1)} km
                           </span>
-                          <span className="text-gray-300">{workout.duration} min</span>
+                          <span className="text-gray-700">{workout.duration} min</span>
                           <span className="text-cyan-400">
                             {formatPace(workout.avgPace)} /km
                           </span>
                           {workout.avgHR && (
-                            <span className="text-gray-300">{workout.avgHR} bpm</span>
+                            <span className="text-gray-700">{workout.avgHR} bpm</span>
                           )}
                           <span className="text-gray-400">RPE: {workout.rpe}</span>
                         </div>

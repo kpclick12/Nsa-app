@@ -99,9 +99,9 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="fixed left-0 top-0 h-full w-64 bg-gray-900 border-r border-gray-800 p-4">
+    <nav className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 p-4">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">NSA</h1>
+        <h1 className="text-2xl font-bold text-gray-900">NSA</h1>
         <p className="text-sm text-gray-500">Norwegian Single Method</p>
       </div>
 
@@ -117,8 +117,8 @@ export default function Navigation() {
                   transition-colors
                   ${
                     isActive
-                      ? 'bg-cyan-600/20 text-cyan-400'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                      ? 'bg-cyan-100 text-cyan-700'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                   }
                 `}
               >

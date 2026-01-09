@@ -108,7 +108,7 @@ export default function CalculatorPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Training Zone Calculator</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Training Zone Calculator</h1>
         <p className="text-gray-400">
           Calculate your personal heart rate and pace zones for training
         </p>
@@ -206,11 +206,11 @@ export default function CalculatorPage() {
                             className="w-3 h-3 rounded-full"
                             style={{ backgroundColor: zone.color }}
                           />
-                          <span className="font-medium text-white">
+                          <span className="font-medium text-gray-900">
                             Zone {zone.zone}: {zone.name}
                           </span>
                         </div>
-                        <span className="text-white font-mono">
+                        <span className="text-gray-900 font-mono">
                           {zone.minHR} - {zone.maxHR} bpm
                         </span>
                       </div>
@@ -234,9 +234,9 @@ export default function CalculatorPage() {
               <CardContent>
                 <div className="space-y-2">
                   {paceZones.map((pace, index) => (
-                    <div key={index} className="p-3 rounded-lg bg-gray-800">
+                    <div key={index} className="p-3 rounded-lg bg-gray-100">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-medium text-white">{pace.type}</span>
+                        <span className="font-medium text-gray-900">{pace.type}</span>
                         <span className="text-cyan-400 font-mono">
                           {formatPaceRange(pace.minPace, pace.maxPace)}
                         </span>
@@ -271,21 +271,21 @@ export default function CalculatorPage() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div>
-              <h4 className="font-medium text-white mb-2">Max Heart Rate</h4>
+              <h4 className="font-medium text-gray-900 mb-2">Max Heart Rate</h4>
               <p className="text-gray-400">
                 The highest your heart rate can go. Best measured through a max effort test.
                 Can be estimated with formulas like 220 - age, but individual variation is high.
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-white mb-2">Lactate Threshold HR</h4>
+              <h4 className="font-medium text-gray-900 mb-2">Lactate Threshold HR</h4>
               <p className="text-gray-400">
                 Your heart rate at the point where lactate starts accumulating faster than it
                 can be cleared. Typically around 85-90% of max HR. Key zone for Norwegian method.
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-white mb-2">Race Time Method</h4>
+              <h4 className="font-medium text-gray-900 mb-2">Race Time Method</h4>
               <p className="text-gray-400">
                 Uses your recent race performance to calculate training paces using VDOT
                 methodology. More accurate for pace-based training.

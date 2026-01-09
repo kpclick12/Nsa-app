@@ -52,7 +52,7 @@ export default function StatsPage() {
   return (
     <div className="max-w-6xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Statistics</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Statistics</h1>
         <p className="text-gray-400">Visualize your training progress and patterns</p>
       </div>
 
@@ -82,16 +82,16 @@ export default function StatsPage() {
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={weeklyData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                  <XAxis dataKey="week" stroke="#9ca3af" fontSize={12} />
-                  <YAxis stroke="#9ca3af" fontSize={12} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="week" stroke="#6b7280" fontSize={12} />
+                  <YAxis stroke="#6b7280" fontSize={12} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#1f2937',
-                      border: '1px solid #374151',
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #e5e7eb',
                       borderRadius: '8px',
                     }}
-                    labelStyle={{ color: '#fff' }}
+                    labelStyle={{ color: '#111827' }}
                   />
                   <Legend />
                   <Bar dataKey="distance" name="Distance (km)" fill="#06b6d4" radius={[4, 4, 0, 0]} />
@@ -124,8 +124,8 @@ export default function StatsPage() {
                   </Pie>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#1f2937',
-                      border: '1px solid #374151',
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #e5e7eb',
                       borderRadius: '8px',
                     }}
                   />
@@ -143,20 +143,20 @@ export default function StatsPage() {
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={progressData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                  <XAxis dataKey="date" stroke="#9ca3af" fontSize={12} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="date" stroke="#6b7280" fontSize={12} />
                   <YAxis
-                    stroke="#9ca3af"
+                    stroke="#6b7280"
                     fontSize={12}
                     tickFormatter={(value) => formatPaceForChart(value)}
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#1f2937',
-                      border: '1px solid #374151',
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #e5e7eb',
                       borderRadius: '8px',
                     }}
-                    labelStyle={{ color: '#fff' }}
+                    labelStyle={{ color: '#111827' }}
                     formatter={(value) => [formatPaceForChart(value as number), 'Pace']}
                   />
                   <Line
@@ -181,13 +181,13 @@ export default function StatsPage() {
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={zoneDistribution} layout="vertical">
-                    <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                    <XAxis type="number" stroke="#9ca3af" fontSize={12} />
-                    <YAxis dataKey="name" type="category" stroke="#9ca3af" fontSize={12} width={80} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis type="number" stroke="#6b7280" fontSize={12} />
+                    <YAxis dataKey="name" type="category" stroke="#6b7280" fontSize={12} width={80} />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: '#1f2937',
-                        border: '1px solid #374151',
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #e5e7eb',
                         borderRadius: '8px',
                       }}
                     />
@@ -219,12 +219,12 @@ export default function StatsPage() {
                   <div
                     key={index}
                     className={`aspect-square rounded-lg flex flex-col items-center justify-center text-xs ${
-                      day.isCurrentMonth ? 'bg-gray-800' : 'bg-gray-900'
+                      day.isCurrentMonth ? 'bg-gray-100' : 'bg-gray-50'
                     } ${day.hasPlanned && !day.hasCompleted ? 'border border-orange-500/50' : ''} ${
                       day.hasCompleted ? 'border border-green-500/50' : ''
                     }`}
                   >
-                    <span className={day.isCurrentMonth ? 'text-gray-300' : 'text-gray-600'}>
+                    <span className={day.isCurrentMonth ? 'text-gray-700' : 'text-gray-600'}>
                       {day.day}
                     </span>
                     {day.hasCompleted && (
@@ -259,7 +259,7 @@ export default function StatsPage() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="text-left text-sm text-gray-400 border-b border-gray-800">
+                    <tr className="text-left text-sm text-gray-400 border-b border-gray-200">
                       <th className="pb-2">Month</th>
                       <th className="pb-2">Workouts</th>
                       <th className="pb-2">Distance</th>
@@ -269,12 +269,12 @@ export default function StatsPage() {
                   </thead>
                   <tbody>
                     {getMonthlyStats(workouts).map((month) => (
-                      <tr key={month.month} className="border-b border-gray-800">
-                        <td className="py-3 text-white">{month.month}</td>
-                        <td className="py-3 text-gray-300">{month.workouts}</td>
-                        <td className="py-3 text-gray-300">{month.distance.toFixed(1)} km</td>
-                        <td className="py-3 text-gray-300">{Math.round(month.duration)} min</td>
-                        <td className="py-3 text-gray-300">{month.avgRPE.toFixed(1)}</td>
+                      <tr key={month.month} className="border-b border-gray-200">
+                        <td className="py-3 text-gray-900">{month.month}</td>
+                        <td className="py-3 text-gray-700">{month.workouts}</td>
+                        <td className="py-3 text-gray-700">{month.distance.toFixed(1)} km</td>
+                        <td className="py-3 text-gray-700">{Math.round(month.duration)} min</td>
+                        <td className="py-3 text-gray-700">{month.avgRPE.toFixed(1)}</td>
                       </tr>
                     ))}
                   </tbody>
